@@ -8,7 +8,7 @@ import java.io.InputStream
 
 object TokenProvider {
     private const val SCOPE = "https://www.googleapis.com/auth/firebase.messaging" // Scope
-    //    private val serviceJsonStream:InputStream? = null  // Access Service Json for getting token
+
     private var credential: GoogleCredentials? = null
     suspend fun getAccessToken(
         serviceAccountJson: InputStream,
@@ -21,15 +21,14 @@ object TokenProvider {
             *   2. check that token is not null and not expiry then return that token
             *   3. if it's null or expiry we refresh token and store to shared preference and return generated token
              */
-
-            if (credential == null || storagePreference.getExpiryTokenTime()<System.currentTimeMillis()) {
-                credential = GoogleCredentials.fromStream(serviceAccountJson).createScoped(SCOPE)
-            }
             val localToken = storagePreference.getToken()
             val expiredTime = storagePreference.getExpiryTokenTime()
             if (localToken != null && expiredTime != 0L && expiredTime > System.currentTimeMillis()) {
                 "Bearer $localToken"
             } else {
+                if (credential == null) {
+                    credential = GoogleCredentials.fromStream(serviceAccountJson).createScoped(SCOPE)
+                }
                 Log.d("input", "getAccessToken: $serviceAccountJson")
                 credential?.refresh()
                 Log.d("Key from google", "getAccessToken: ${credential?.accessToken} ")
