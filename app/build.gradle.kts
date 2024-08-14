@@ -70,6 +70,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -81,5 +82,6 @@ dependencies {
 //    implementation(libs.retrofit)
 //    implementation(libs.converter.moshi)
 
-    implementation(project(":firebase-custom-messaging"))
+//    implementation(project(":firebase-custom-messaging"))
+      implementation(libs.firebase.custom.messaging)
 }
