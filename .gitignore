@@ -15,5 +15,4 @@
 local.properties
 assets
 
-./firebase-custom-messaging
-./app/google-services.json
+
