@@ -14,5 +14,5 @@
 .cxx
 local.properties
 assets
-firebase-custom-messaging
+firebase-custom-messaging/*
 app/google-services.json
