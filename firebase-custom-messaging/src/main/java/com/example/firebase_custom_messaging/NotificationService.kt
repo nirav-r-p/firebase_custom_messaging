@@ -2,7 +2,6 @@ package com.example.firebase_custom_messaging
 
 import android.content.Context
 import android.net.http.HttpException
-import com.example.firebase_custom_messaging.FirebaseMessagingService.Companion.api
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.create
