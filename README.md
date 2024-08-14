@@ -61,7 +61,7 @@ In your application class or activity, initialize the library with your Firebase
         // Initialize FirebaseNotification with project name and service account
         firebaseMessagingProvider = FirebaseMessagingService.getInstance(
             projectName = "your_project_name",
-            serviceAccountJson = assets.open("service_account_key.json")
+            serviceAccountJson = this.assets.open("service_account_key.json")
         )
         firebaseMessagingProvider.initialize(this)
     }
