@@ -77,7 +77,7 @@ In your application class or activity, initialize the library with your Firebase
          // use firebaseMessagingProvider
          // for broadcast notification
           viewModelScope.launch {
-              MyApp.firebaseMessagingService.sendBroadCastNotification("<subscribed-topic>","<Title>","<Message>")
+              MyApp.firebaseMessagingProvider.sendBroadCastNotification("<subscribed-topic>","<Title>","<Message>")
            }
 
         }
