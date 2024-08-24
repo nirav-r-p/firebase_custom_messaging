@@ -78,10 +78,10 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-//    implementation (libs.google.auth.library.oauth2.http)
-//    implementation(libs.retrofit)
-//    implementation(libs.converter.moshi)
+    implementation (libs.google.auth.library.oauth2.http)
+    implementation(libs.retrofit)
+    implementation(libs.converter.moshi)
 
-    implementation(project(":firebase-custom-messaging"))
-//      implementation(libs.firebase.custom.messaging)
+//    implementation(project(":firebase-custom-messaging"))
+      implementation(libs.firebase.custom.messaging)
 }

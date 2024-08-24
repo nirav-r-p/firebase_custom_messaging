@@ -14,7 +14,7 @@ This repository contains a custom Android library for handling Firebase Cloud Me
 
 To use this library in your Android project, follow these steps:
 
-### 1. Add JitPack Repository
+### 1. Add JitPack Repository (Admin Side)
 
 Add JitPack to your project's `build.gradle` file:
 
@@ -36,11 +36,11 @@ allprojects {
         //For Json Factory Convert
         implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
         // my custom package for messaging
-        implementation("com.github.nirav-r-p:firebase_custom_messaging:1.0.0")
+        implementation("com.github.nirav-r-p:firebase_custom_messaging:1.0.1-alpha")
     }
 ```
 
-### 3. Setup (Admin Side)
+### 3. Setup 
  1. Manifest File (Permission)
  ```groovy
  <manifest
@@ -53,13 +53,13 @@ In your application class or activity, initialize the library with your Firebase
 ```groovy
  class MyApp : Application() {
     companion object{
-        lateinit var firebaseMessagingProvider:  FirebaseMessagingService
+        lateinit var firebaseMessagingProvider:  FirebaseCustomMessaging
     }
     override fun onCreate() {
         super.onCreate()
 
         // Initialize FirebaseNotification with project name and service account
-        firebaseMessagingProvider = FirebaseMessagingService.getInstance(
+        firebaseMessagingProvider = FirebaseCustomMessaging.getInstance(
             projectName = "your_project_name", // firebase project name
             serviceAccountJson = this.assets.open("service_account_key.json")
         )
