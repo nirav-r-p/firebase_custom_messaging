@@ -61,36 +61,39 @@ fun ColumnScope.SendBox(viewModel: NotificationViewModel) {
    val data by viewModel.messageData.collectAsState()
     val userdata by viewModel.userMessage.collectAsState()
     Text(text = "For Broad Cast ")
-    TextField(value = data.title, onValueChange ={viewModel.onEvent(NotificationEvent.SetTitle(it))}, label = {
+    TextField(value = data.title, onValueChange ={viewModel.setMessage(SetFiledEvent.SetTitle(it))}, label = {
         Text(text = "Title")
     })
 
-    TextField(value = data.message, onValueChange ={viewModel.onEvent(NotificationEvent.SetMessage(it))} , label = {
+    TextField(value = data.message, onValueChange ={viewModel.setMessage(SetFiledEvent.SetMessage(it))} , label = {
         Text(text = "Message")
+    })
+    TextField(value = data.image, onValueChange ={viewModel.setMessage(SetFiledEvent.SetImageUrl(it))} , label = {
+        Text(text = "Image Url")
     })
     Box(Modifier.height(12.dp))
     ElevatedButton(onClick = { 
         if(data.title!="" && data.message!=""){
-            viewModel.onEvent(NotificationEvent.SendNotification)
+            viewModel.setEvent(NotificationEvent.SendNotification)
         }
     }) {
         Text(text = "Broadcast Message")
     }
     Text(text = "For User ")
     Box(Modifier.height(12.dp))
-    TextField(value = userdata.token, onValueChange ={viewModel.onEvent(NotificationEvent.SetTokenForUser(it))}, label = { Text(
+    TextField(value = userdata.token, onValueChange ={viewModel.setMessage(SetFiledEvent.SetTokenForUser(it))}, label = { Text(
         text = "Token"
     )})
-    TextField(value = userdata.title, onValueChange ={viewModel.onEvent(NotificationEvent.SetTitleForUser(it))}, label = {
+    TextField(value = userdata.title, onValueChange ={viewModel.setMessage(SetFiledEvent.SetTitleForUser(it))}, label = {
         Text(text = "Title")
     } )
-    TextField(value = userdata.message, onValueChange ={viewModel.onEvent(NotificationEvent.SetMessageForUser(it))} , label = {
+    TextField(value = userdata.message, onValueChange ={viewModel.setMessage(SetFiledEvent.SetMessageForUser(it))} , label = {
         Text(text = "Message")
     })
     Box(Modifier.height(12.dp))
     ElevatedButton(onClick = {
         if(userdata.title!="" && userdata.message!="" && userdata.token!=""){
-            viewModel.onEvent(NotificationEvent.SendNotificationToUser)
+            viewModel.setEvent(NotificationEvent.SendNotificationToUser)
         }
     }) {
         Text(text = "SendMessage to User")

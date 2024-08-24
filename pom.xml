@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.nirav-r-p</groupId>
     <artifactId>firebase_custom_messaging</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-alpha</version>
     <packaging>pom</packaging>
     <description>Android Library for firebase messaging</description>
 </project>

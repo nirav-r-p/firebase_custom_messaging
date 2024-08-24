@@ -82,6 +82,6 @@ dependencies {
 //    implementation(libs.retrofit)
 //    implementation(libs.converter.moshi)
 
-//    implementation(project(":firebase-custom-messaging"))
-      implementation(libs.firebase.custom.messaging)
+    implementation(project(":firebase-custom-messaging"))
+//      implementation(libs.firebase.custom.messaging)
 }

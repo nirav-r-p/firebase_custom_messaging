@@ -2,7 +2,8 @@ package com.example.notificationadmin
 
 import android.app.Application
 import android.content.Context
-import com.example.firebase_custom_messaging.FirebaseMessagingService
+import com.example.firebase_custom_messaging.FirebaseCustomMessaging
+
 
 
 import java.io.InputStream
@@ -23,7 +24,7 @@ class MyApp : Application() {
 
 interface AppModel {
     val serviceFile: InputStream
-    val firebaseMessagingService: FirebaseMessagingService
+    val firebaseMessagingService: FirebaseCustomMessaging
 
 }
 
@@ -36,9 +37,9 @@ class AppModuleImp(
     lazy {
         appContext.assets.open("service_account_key.json")
     }
-    override val firebaseMessagingService: FirebaseMessagingService
+    override val firebaseMessagingService: FirebaseCustomMessaging
         by lazy {
-            FirebaseMessagingService.getInstance("notification-example-21b1d", serviceAccountJson = MyApp.appModel.serviceFile)
+            FirebaseCustomMessaging.getInstance("notification-example-21b1d", serviceAccountJson = MyApp.appModel.serviceFile)
         }
 
 }

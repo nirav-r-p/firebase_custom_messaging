@@ -54,29 +54,29 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.converter.moshi)
 }
-//buildscript {
-//    repositories {
-//        google()
-//        mavenCentral()
-//        mavenLocal()            // << --- ADD This
-//    }
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        mavenLocal()            // << --- ADD This
+    }
+
+    dependencies {
+        classpath("com.android.tools.build:gradle:7.1.3")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.20")
+    }
+}
 //
-//    dependencies {
-//        classpath("com.android.tools.build:gradle:7.1.3")
-//        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.20")
-//    }
-//}
 //
-//
-//publishing{
-//    publications {
-//        create<MavenPublication>(project.name){
-//            groupId="com.github.nirav-r-p"
-//            artifactId="firebase_custom_messaging"
-//            version="1.0.0"
-//            pom{
-//                description="Android Library for firebase custom messaging"
-//            }
-//        }
-//    }
-//}
+publishing{
+    publications {
+        create<MavenPublication>(project.name){
+            groupId="com.github.nirav-r-p"
+            artifactId="firebase_custom_messaging"
+            version="1.0.1-alpha"
+            pom{
+                description="Android Library for firebase custom messaging"
+            }
+        }
+    }
+}
