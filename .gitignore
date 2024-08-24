@@ -15,5 +15,6 @@
 local.properties
 assets
 google-services.json
-
+firebase-custom-messaging-release.aar
+firebase-custom-messaging-release-1.0.1-alpha.aar
 
